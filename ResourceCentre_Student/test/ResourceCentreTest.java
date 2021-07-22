@@ -51,7 +51,20 @@ public class ResourceCentreTest {
 	@Test
 	public void testAddChromebook() {
 		//fail("Not yet implemented");
-		// write your code here
+		// write your code here (PING PING)
+		// Item list is not null, so that can add a new item
+		assertNotNull("Test if there is valid Chromebook arraylist to add to", chromebookList);
+		
+		//Given an empty list, after adding 1 item, the size of the list is 1
+		ResourceCentre.addChromebook(chromebookList, cb1);		
+		assertEquals("Test if that Chromebook arraylist size is 1?", 1, chromebookList.size());
+		
+		//The item just added is as same as the first item of the list
+		assertSame("Test that Chromebook is added same as 1st item of the list?", cb1, chromebookList.get(0));
+		
+		//Add another item. test The size of the list is 2?
+		ResourceCentre.addChromebook(chromebookList, cb2);
+		assertEquals("Test that Chromebook arraylist size is 2?", 2, chromebookList.size());
 	}
 	
 	@Test
@@ -87,7 +100,7 @@ public class ResourceCentreTest {
 	@Test
 	public void testDoLoanCamcorder() {
 		//fail("Not yet implemented");
-		// write your code here
+		// write your code here (ping ping)
 		assertNotNull("Test if there is valid Camcorder arraylist to add to", chromebookList);
 		Boolean ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", "8-8-2020");
 		assertTrue("Test if an available item is ok to loan?", ok);
@@ -96,6 +109,9 @@ public class ResourceCentreTest {
 		ResourceCentre.addCamcorder(camcorderList, cc2);
 		cc2.setIsAvailable(false);
 		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0012", "8-8-2020");
+		assertFalse("Test that unavailable item is NOT ok to loan?",ok);
+		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0013","8-8-2020");
+		assertFalse("Test that non extisting item is NOT ok to loan?",ok);
 		
 	}
 	
