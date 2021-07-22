@@ -99,7 +99,7 @@ public class ResourceCentreTest {
 	@Test
 	public void testDoLoanChromebook() {
 		//fail("Not yet implemented");
-		// write your code here j
+		// write your code here jo
 		assertNotNull("Test if there is valid Camcorder arraylist to add to", chromebookList);
 		ResourceCentre.addChromebook(chromebookList, cb1);
 		ResourceCentre.addChromebook(chromebookList, cb2);
