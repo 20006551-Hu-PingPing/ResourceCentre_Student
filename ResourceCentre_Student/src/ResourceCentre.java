@@ -60,7 +60,7 @@ public class ResourceCentre {
 					// Loan camcorder
 					ResourceCentre.loanCamcorder(camcorderList);
 				} else if (itemType == 2) {
-					// Loan Chromebook
+					// Loan Chromeboneedok
 					ResourceCentre.loanChromebook(chromebookList);
 				} else {
 					System.out.println("Invalid type");
@@ -181,12 +181,19 @@ public class ResourceCentre {
 	
 	public static Chromebook inputChromebook() {	
 		Chromebook cb =null;
-		// write your code here
+		// write your code here(ping ping)
+		String tag = Helper.readString("Enter asset tag > ");
+		String description = Helper.readString("Enter description > ");
+		String os = Helper.readString("Enter OS > ");
+		
+		cb= new Chromebook(tag, description, os);
 		return cb;
 		
 	}	
 	public static void addChromebook(ArrayList<Chromebook> chromebookList, Chromebook cb) {
-		// write your code here
+		// write your code here(ping ping)
+		chromebookList.add(cb);
+		System.out.println("Chromebook added");
 	}
 	
 	//================================= Option 3 Loan an item (CRUD - Update) =================================
