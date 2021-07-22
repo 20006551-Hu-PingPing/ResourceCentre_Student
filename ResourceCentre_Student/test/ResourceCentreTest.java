@@ -98,16 +98,29 @@ public class ResourceCentreTest {
 	}
 	
 	@Test
-	public void testDoReturnCamcorder() {
-		//fail("Not yet implemented");
-		// write your code here
-		
-	}
-	@Test
-	public void testDoReturnChromebook() {
-		//fail("Not yet implemented");
-		// write your code here
-	}
+	   public void testDoReturnCamcorder() {
+        //fail("Not yet implemented");
+        // write your code here
+        assertNotNull("Test that there is an array list is present to add to",camcorderList);
+        ResourceCentre.addCamcorder(camcorderList, cc1);
+        ResourceCentre.addCamcorder(camcorderList, cc2);
+        assertEquals("Test that the array list size equals to 2",2,camcorderList.size());
+        ResourceCentre.doReturnCamcorder(camcorderList, cc1.getAssetTag(), cc1.getDueDate());
+        assertFalse(cc1.getIsAvailable());
+    }
+    @Test
+    public void testDoReturnChromebook() {
+        //fail("Not yet implemented");
+        // write your code here
+        assertNotNull("Test that there is an array list is present to add to",chromebookList);
+        ResourceCentre.addChromebook(chromebookList, cb1);
+        ResourceCentre.addChromebook(chromebookList, cb2);
+        assertEquals("Test that the array list size equals to 2",2,chromebookList.size());
+        ResourceCentre.doReturnChromebook(chromebookList, cb1.getAssetTag(), cb1.getDueDate());
+        assertTrue(cb1.getIsAvailable());
+    }
+	
+	
 	
 	@After
 	public void tearDown() throws Exception {
