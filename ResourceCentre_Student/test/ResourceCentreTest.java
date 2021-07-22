@@ -88,24 +88,29 @@ public class ResourceCentreTest {
 	public void testDoLoanCamcorder() {
 		//fail("Not yet implemented");
 		// write your code here
-		assertNotNull("Test if there is valid Camcorder arraylist to add to", camcorderList);
-		ResourceCentre.addCamcorder(camcorderList, cc1);
+		assertNotNull("Test if there is valid Camcorder arraylist to add to", chromebookList);
+		Boolean ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011", "8-8-2020");
+		assertTrue("Test if an available item is ok to loan?", ok);
+		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0011",  "8-8-2020");
+		assertFalse("Test if same item is NOT ok to loan again?", ok);
 		ResourceCentre.addCamcorder(camcorderList, cc2);
-		assertEquals("Test if that Camcorder arraylist size is 2?", 2, camcorderList.size());
-		ResourceCentre.doLoanCamcorder(camcorderList, cc1.getDescription(), cc1.getDueDate());
-		assertFalse(cc1.getIsAvailable());
+		cc2.setIsAvailable(false);
+		ok = ResourceCentre.doLoanCamcorder(camcorderList, "CC0012", "8-8-2020");
+		
 	}
 	
 	@Test
 	public void testDoLoanChromebook() {
 		//fail("Not yet implemented");
 		// write your code here jordan
-		assertNotNull("Test if there is valid Camcorder arraylist to add to", chromebookList);
-		ResourceCentre.addChromebook(chromebookList, cb1);
+		assertNotNull("Test if there is valid Chromebook arraylist to add to", chromebookList);
+		Boolean ok = ResourceCentre.doLoanChromebook(chromebookList, "CB0011", "8-8-2020");
+		assertTrue("Test if an available item is ok to loan?", ok);
+		ok = ResourceCentre.doLoanChromebook(chromebookList, "CB0011",  "8-8-2020");
+		assertFalse("Test if same item is NOT ok to loan again?", ok);
 		ResourceCentre.addChromebook(chromebookList, cb2);
-		assertEquals("Test if that Chromebook arraylist size is 2?", 2, chromebookList.size());
-		ResourceCentre.doLoanChromebook(chromebookList, cb1.getDescription(), cb1.getDueDate());
-		assertFalse(cb1.getIsAvailable());
+		cb2.setIsAvailable(false);
+		ok = ResourceCentre.doLoanChromebook(chromebookList, "CC0012", "8-8-2020");
 	}
 	
 	@Test
